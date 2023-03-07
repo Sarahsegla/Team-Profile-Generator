@@ -5,6 +5,7 @@ const inquirer = require("inquirer");
 const prompts = require('prompts');
 const path = require("path");
 const fs = require("fs");
+const emailValidator = require('email-validator');
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -39,7 +40,7 @@ inquirer.prompt ([
     type: `input`,
     message: `Email Address`,
     name: `Email`,
-    validate: function(email)
+    validate: function(input)
     {
         valid = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
@@ -50,18 +51,17 @@ inquirer.prompt ([
             console.log(` Sorry invalid`);
             return false;
         }
+        const done = this.async();
     }
     },
     // need to fix email inquirer
     {
-        type: `select`,
+        type: `list`,
         message: `Here are your options`,
-        name: `value`,
-        choices: [
-            {title: `Add an engineer`, value: `Add an engineer`},
-            {title: `Add an intern`, value: `Add an intern`},
-            {title: `Finish building the team`, value: `Finish building the team`},
-        ]
+        name: `List of options`,
+        choices: [ `Add an engineer`, `Add an intern`, `Finish building the team` ],
+        default: `Finish building the team`
+    // need to fix options  inquirer
     
         },
     
@@ -69,7 +69,7 @@ inquirer.prompt ([
 .then((response) => {
     console.log(response);
 
-    fs.watchFile(`index.html`, generateTeam, (error) =>
+    fs.watchFile(`team.html`, render, (error) =>
     error ? console.error(error) : console.log(`We did it!`)
      )
 });
