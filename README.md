@@ -1,18 +1,22 @@
 # Team-Profile-Generator
 
 ## User Story
-To create a team profile generator. 
+To create a team profile generator using NodejS 
 
 
 ## Acceptance Criteria
-Point one\
-Point two\
+When user input is accepted by command-line\
+When all the classes have passed\
+When a HTML file is created
 
 
 
 ## Installation
 
-N/A
+Visual Studio Code/
+NodeJS/
+Jest/
+Inquirer
 
 ## Link 
 - 
