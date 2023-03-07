@@ -31,9 +31,9 @@ inquirer.prompt ([
 
     },
     {
-    type: `input`,
+    type:`number`,
     message: `Office number:`,
-    name: `number`
+    name: `office number`
 
     },
     {
@@ -51,7 +51,7 @@ inquirer.prompt ([
             console.log(` Sorry invalid`);
             return false;
         }
-        const done = this.async();
+        return input;
     }
     },
     // need to fix email inquirer
