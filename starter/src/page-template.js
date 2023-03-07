@@ -1,3 +1,4 @@
+
 // creates the team
 const generateTeam = team => {
 
@@ -57,11 +58,9 @@ const generateTeam = team => {
 </div>
         `;
     };
-
     const html = [];
 
-    html.push(team
-        .filter(employee => employee.getRole() === "Manager")
+    html.push(team.filter(employee => employee.getRole() === "Manager")
         .map(manager => generateManager(manager))
     );
     html.push(team
@@ -76,7 +75,7 @@ const generateTeam = team => {
     );
 
     return html.join("");
-   
+
  }
 
 // exports function to generate entire page
