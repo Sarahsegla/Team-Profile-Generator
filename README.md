@@ -19,7 +19,7 @@ Jest/
 Inquirer
 
 ## Link 
-- 
+- https://sarahsegla.github.io/Team-Profile-Generator/
 
 
 ## screenshot
